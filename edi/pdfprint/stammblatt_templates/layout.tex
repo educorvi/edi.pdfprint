@@ -1,0 +1,41 @@
+<%block name="documentclass">
+\RequirePackage{fix-cm}
+\documentclass[a4paper]{scrartcl}
+</%block>
+
+<%block name="usePackages">
+  ${packages}
+</%block>
+
+<%block name="beneathPackages">
+</%block>
+
+
+<%block name="aboveDocument">
+\renewcommand*\familydefault{\sfdefault}
+\pagestyle{scrheadings}
+\ihead[{\includegraphics[scale=0.75]{/Users/larswalther/plone4/zinstance/src/edi.pdfprint/edi/pdfprint/stammblatt_templates/educorvi_logo.png}}]{}
+  % if headline:
+    \newcommand{\myhead}{${headline}}
+    \ohead[\myhead]{\myhead}
+  % endif
+</%block>
+
+\begin{document}
+
+\title{LaTeX-Druck für Prozess-Stammblatt}
+\maketitle
+
+<%block name="documentTop">
+  % if logo:
+    ${logo}
+  % endif
+</%block>
+
+${content}
+
+<%block name="documentBottom">
+</%block>
+
+\end{document}
+

@@ -1,0 +1,13 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:grok="http://namespaces.zope.org/grok"
+           xmlns:browser="http://namespaces.zope.org/browser">
+  <include package="five.grok" />
+  <grok:grok package="." />
+
+  <adapter factory=".layout.StammblattLayout"
+           provides="ftw.pdfgenerator.interfaces.ILaTeXLayout" />
+
+  <adapter factory=".views.StammblattLaTeXView"
+             provides="ftw.pdfgenerator.interfaces.ILaTeXView" />
+
+</configure>

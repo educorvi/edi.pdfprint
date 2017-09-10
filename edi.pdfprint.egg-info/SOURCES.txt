@@ -1,0 +1,14 @@
+README.txt
+setup.py
+edi/__init__.py
+edi.pdfprint.egg-info/PKG-INFO
+edi.pdfprint.egg-info/SOURCES.txt
+edi.pdfprint.egg-info/dependency_links.txt
+edi.pdfprint.egg-info/entry_points.txt
+edi.pdfprint.egg-info/namespace_packages.txt
+edi.pdfprint.egg-info/not-zip-safe
+edi.pdfprint.egg-info/requires.txt
+edi.pdfprint.egg-info/top_level.txt
+edi/pdfprint/__init__.py
+edi/pdfprint/layout.py
+edi/pdfprint/views.py
