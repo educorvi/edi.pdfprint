@@ -24,6 +24,7 @@ setup(name='edi.pdfprint',
       install_requires=[
           'setuptools',
           'uvc.api[plone]',
+          'ftw.pdfgenerator',
           # -*- Extra requirements: -*-
       ],
       entry_points={
