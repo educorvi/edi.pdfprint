@@ -1,6 +1,6 @@
 <%block name="documentclass">
 \RequirePackage{fix-cm}
-\documentclass[a4paper]{scrartcl}
+\documentclass[a4paper]{infoblatt}
 </%block>
 
 <%block name="usePackages">
@@ -11,31 +11,26 @@
 </%block>
 
 
-<%block name="aboveDocument">
-\renewcommand*\familydefault{\sfdefault}
-\pagestyle{scrheadings}
-\ihead[{\includegraphics[scale=0.75]{/Users/larswalther/plone4/zinstance/src/edi.pdfprint/edi/pdfprint/stammblatt_templates/educorvi_logo.png}}]{}
-  % if headline:
-    \newcommand{\myhead}{${headline}}
-    \ohead[\myhead]{\myhead}
-  % endif
-</%block>
-
 \begin{document}
 
-\title{LaTeX-Druck für Prozess-Stammblatt}
-\maketitle
+\doctitel{Fachgebiets-Info}
+\fachgebiet{Druck und Papierverarbeitung}
+\fusszeile
+\stand{${stand}}
+\bestellnummer{${bestellnummer}}
 
 <%block name="documentTop">
-  % if logo:
+  %if logo:
     ${logo}
-  % endif
+  %endif
 </%block>
+
+\vspace*{3cm}
 
 ${content}
 
 <%block name="documentBottom">
+
 </%block>
 
 \end{document}
-

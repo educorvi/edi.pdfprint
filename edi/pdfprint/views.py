@@ -6,6 +6,7 @@ from Acquisition import aq_inner
 from zope.component import getMultiAdapter
 
 from bghw.stammblatt.interfaces import IStammblatt
+from Products.ATContentTypes.interfaces.document import IATDocument
 from ftw.pdfgenerator.interfaces import ILaTeXLayout
 from ftw.pdfgenerator.interfaces import ILaTeXView
 from ftw.pdfgenerator.view import MakoLaTeXView
@@ -17,6 +18,13 @@ from zope.component import getUtility
 from zope.schema import getFieldsInOrder
 from plone.app.textfield import RichText
 from zope.schema import *
+
+class EdiDocumentView(api.View):
+    api.context(Interface)
+
+    def render(self):
+        return self.context.getText()
+
 
 class EdiPrintView(api.Page):
     api.context(Interface)
@@ -48,7 +56,7 @@ class EdiPrintView(api.Page):
         return html
 
 class StammblattLaTeXView(MakoLaTeXView):
-    adapts(IStammblatt, Interface, ILaTeXLayout)
+    adapts(IATDocument, Interface, ILaTeXLayout)
     implements(ILaTeXView)
 
     template_directories = ['stammblatt_templates']
@@ -63,4 +71,4 @@ class StammblattLaTeXView(MakoLaTeXView):
     def get_render_arguments(self):
         return {'title': self.convert(self.context.Title()),
                 'description': self.convert(self.context.description),
-                'details': self.convert(self.getView(name='ediprintview'))}
+                'details': self.convert(self.getView(name='edidocumentview'))}
